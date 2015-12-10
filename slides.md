@@ -1,4 +1,4 @@
-# Put a nice title here
+# Source Code Management
 
 ### Andrea Galbusera (gizero)
 
@@ -19,6 +19,12 @@ doing SCM since 2002 (in some way teaching it)
 using `git` since 2010
 
 doing research into SCM technologies and best practices
+
+---
+
+This presentation is browsable at http://gizero.github.io/scm-course-ff3d/
+
+Sources at https://github.com/gizero/scm-course-ff3d/
 
 ---
 
@@ -53,8 +59,10 @@ doing research into SCM technologies and best practices
 - client agnostic
 <!-- .element: class="fragment" data-fragment-index="4" -->
 
-- ...but heavily biased towards command line (will tell you why)
+- ...but heavily biased towards command line
 <!-- .element: class="fragment" data-fragment-index="5" -->
+
+Note: will tell you why in a while
 
 ---
 
@@ -98,7 +106,7 @@ nella classificazione appena introdotta...
 - backup older files
 - work with others on a project simultaneously
 - keep track of authorship
-- deal with big (or even small) change breaking things
+- deal with big (or even small) changes that break things
 - move things from one host to another
 
 ---
@@ -241,8 +249,12 @@ a workflow they can use with git
 ---
 
 # Interlude - VCS and the ecosystem
-- CI - Continuous Integration
-- Continuous Deployment
+- continuous integration (CI)
+- continuous deployment
+
+Note: abbiamo delineato in linea di massima chi fa cosa. Ora iniziamo a vedere
+in che modo possiamo affrontare le situazioni che tipicamente si presentano
+durante lo sviluppo di un progetto.
 
 ---
 
@@ -254,9 +266,9 @@ a workflow they can use with git
 
 ---
 
-# Branches
+# Workflows
 
-- 
+- branches help keeping different tasks separated
 
 --->
 
@@ -275,13 +287,84 @@ Shared repository with two contributors
 # Continuous Deployment
 - either a solo developer workflow or a more mature "trust your code" thing
 
+---
+
+# Centralized Workflow
+
+![repo](assets/centralized-04.svg)
+
 --->
+
+# Centralized WF
+
+![clone](assets/centralized-05.svg)
+
+--->
+
+# Centralized WF
+
+![John work](assets/centralized-06.svg)
+
+--->
+
+# Centralized WF
+
+![Mary work](assets/centralized-07.svg)
+
+--->
+
+# Centralized WF
+
+![John push](assets/centralized-08.svg)
+
+--->
+
+# Centralized WF
+
+![Mery can't push](assets/centralized-09.svg)
+
+--->
+
+# Centralized WF
+
+![Mery rebase](assets/centralized-10.svg)
+
+--->
+
+# Centralized WF
+
+![Mery conflicts](assets/centralized-12.svg)
+
+--->
+
+# Centralized WF
+
+![Mery push](assets/centralized-14.svg)
+
+---
+
+# Feature Branch Workflow
+
+Encurage collaboration and communication between team members
+- work
+- push
+- pull-request
+- review process
+- iterate
+- merge to master
+- push
+
+--->
+
+# Feature Branch Workflow
+
+---
 
 # Release schedule
 
 ![Releases Timeline](assets/timeline.jpg)
 
-Release frequency incfluences the branching strategy
+Release frequency influences the branching strategy
 
 The more often you release, the more you need to be using branches to manage
 things
@@ -426,3 +509,10 @@ Commit log messages
 
 --->
 
+# Best Practices
+
+Don't comment code: just delete it
+
+- tools allow for easy recovery if needed
+- keep things more readable
+- can have performance inpact in sources for the web
