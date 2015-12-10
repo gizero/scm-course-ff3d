@@ -28,6 +28,7 @@ doing research into SCM technologies and best practices
 - disclaimer
 - what's this all about?
 - (brief) history of SCM
+- workshop
 
 --->
 
@@ -71,7 +72,7 @@ doing research into SCM technologies and best practices
 - you will learn the commands to implement it
 
 Note: invece di concentrarsi sui comandi ci focalizzeremo maggiormente sul
-perchè vogliamo fare qualcosa e poi su come implementarla. Useremo i
+perchè vogliamo fare qualcosa e poi su come implementarla. Useremo qualche
 diagrammi per stimolare gli stessi processi di apprendimento che normalmente
 portano alcuni di noi a preferire le GUI rispetto alle interfacce CLI.
 
@@ -86,24 +87,18 @@ portano alcuni di noi a preferire le GUI rispetto alle interfacce CLI.
 
 Note: con il termine SCM comprendiamo anche pratiche e strumenti più o meno
 correlati con il controllo di revisione, quali il deployment e il ticket/issue
-tracking
-
-Note: quindi vediamo cosa ci permettono di fare questi strumenti che rientrano
+tracking. Quindi vediamo cosa ci permettono di fare questi strumenti che rientrano
 nella classificazione appena introdotta...
 
 ---
+
+# With SCM tools we...
 
 - keep track of changes over time
 - backup older files
 - work with others on a project simultaneously
 - keep track of authorship
-
----
-
-- big (or even small) change breaking things
-
----
-
+- deal with big (or even small) change breaking things
 - move things from one host to another
 
 ---
@@ -112,7 +107,7 @@ nella classificazione appena introdotta...
 
 - productivity tool
 - easily switch between tasks
-  + paralelizing activities
+  + parallelizing activities
 - quickly react to urgencies
   + make a quick fix while working on a new feature
 
@@ -129,60 +124,239 @@ nella classificazione appena introdotta...
 
 # do I really need a tool? (alternatives)
 
-- frequently backup your files (caveman SCM)
+Frequently backup your files (caveman's SCM)
 
 PROs:
 - straightforward: anyone knows how to do it
 
 CONs:
 - what does frequently mean?
-- how to deal backups with (housekeeping)
-- find useful things among backups
+- how to deal with backups (housekeeping)
+- hard to find useful things among backups
+- doesn't solve the collaboration issue
 
 ---
 
 # Distributed vs Centralized
 
 - Centralized VCSs:
-  + CVS
   + SVN
   + TFS
+  + CVS
+
+--->
+
+# Distributed vs Centralized
 
 - Distributed VCSs:
+  + git
   + Mercurial
   + BitKeeper
-  + git
+
+---
+
+## Distributed as the New Centralized
+
+![Centralised](assets/workflow-centralized.png)
+
+--->
+
+## Integration Manager
+
+![Integration Manager](assets/workflow-integration-manager.png)
+
+--->
+
+## Dictator and Lieutenants
+
+![Dictator and Lieutenants](assets/workflow-dictator.png)
 
 ---
 
 # Authorship
 
-- VCS keep track of "who made what"
+- keep track of "who made what"
 - allow "blaming" changesets
 
 ---
 
-# Exercise 1: 
----
+# Exercise 1: outline your team
 
-# Workflows
+Who is in your team?
+
+Note: dare un'idea di cosa vogliamo fare senza svelare i dettagli. Cerchiamo di
+conoscere il team e il teamwork per caratterizzare i workflow di interesse.
+Usiamo come riferimento un progetto reale che coinvolga un numero significativo
+di persone oppure proviamo a immaginare un progetto imminente o anche fittizio
+sul quale ragionare.
+
+--->
+
+# Exercise 1: outline your team
+
+What are their roles?
++ developers
++ designers
++ project managers
++ clients
+
+--->
+
+# Exercise 1: outline your team
+
+What task are they responsible for?
++ writing code
++ reviewing code
++ pushing code to servers
++ fixing broken code
+
+Note: prendete carta e penna e scrivete i nomi delle persone coinvolte nel
+progetto, indicando i loro ruoli e le attività delle quali sono responsabili:
+utilizzando i verbi come download work, create snapshot, share work
+
+--->
+
+# Exercise 1: outline your team
+
+What constraints are you dealing with?
++ how do you schedule your deadlines?
++ where is your code hosted?
++ do you have staging instance?
++ where are the server you push to?
++ do you use a local development pattern?
+
+Note: I tricked you and you just built a checklist for what they need to create
+a workflow they can use with git
 
 ---
 
 # Interlude - VCS and the ecosystem
 - ticket driven development (issue tracking)
+- milestones
 - QA (testing strategies)
+- releases, versioning scheme
 - deployment strategies
+- documentation (GitHub pages, wikis)
 
 ---
+
+# Interlude - VCS and the ecosystem
+- CI - Continuous Integration
+- Continuous Deployment
+
+---
+
+# Workflows
+
+- the world is non-linear
+- your work is no exception
+- need to manage complexity
+
+---
+
+# Branches
+
+- 
+
+--->
+
+# A Simple Workflow
+Shared repository with two contributors
+
+![Decentralised](assets/02fig02-decentralized.svg)
+
+--->
 
 # Scheduled Deployment
 - ticket based development
 
----
+--->
 
 # Continuous Deployment
 - either a solo developer workflow or a more mature "trust your code" thing
+
+--->
+
+# Release schedule
+
+![Releases Timeline](assets/timeline.jpg)
+
+Release frequency incfluences the branching strategy
+
+The more often you release, the more you need to be using branches to manage
+things
+
+---
+
+# Desktop-like software
+
+- few months to a year between releases
+- every release involves significant overhead
+- different versions installed at the same time
+- need to support more then one release
+
+--->
+
+# Desktop-like software
+
+## one branch per release
+
+![desktop-like software](assets/desktop-like-software.jpg)
+
+--->
+
+# Desktop-like software
+
+## consolidation branches
+
+![Consolidation Branches](assets/polishing-branch.jpg)
+
+--->
+
+# Desktop-like software
+
+## ready to release!
+
+![Release Branch](assets/release-branch.jpg)
+
+--->
+
+# Desktop-like software
+
+## oops: here comes the bug
+
+![Critical Fix](assets/critical-fix.jpg)
+
+--->
+
+# Desktop-like software
+
+## non-trivial features
+
+![Feature Branches](assets/feature-branches.jpg)
+
+---
+
+# Web Applications
+
+- little overhead for releasing
+- releasing means deploying
+- user often unaware of versioning
+- usually only one version is maintained
+
+--->
+
+# Web Applications
+
+![Web-like Software](assets/web-like-software.jpg)
+
+--->
+
+# Web Applications
+
+- more importance to feature branches
+- continuous deployment with automation
+- support transparent rollback
 
 ---
 
@@ -190,10 +364,11 @@ CONs:
 
 It's a matter of taste but:
 - as a programmer I don't trust GUIs
-- it's eleganct (clicking here and there becomes boring)
+- it's elegant (clicking here and there becomes boring)
 - allows progressively replacing yourself with scripts (automation)
 - easier to write cheat sheets, share knowledge and ask the web for help (Stack Overflow)
 
+---
 
 # Slide 3
 
@@ -205,6 +380,49 @@ It's a matter of taste but:
 
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
-    $ git commit .
+    $ git commit -m "This is my first commit"
 
 <!-- .element: class="fragment" data-fragment-index="3" -->
+
+---
+
+# Best Practices
+
+Always run 'diff' before committing
+
+--->
+
+# Best Practices
+
+Read diffs from other developers
+
+- you can learn something
+- informal review
+
+--->
+
+# Best Practices
+
+Keep your repos as small as possible
+
+- minimal set of "sources"
+- never store generated files
+- store content, not representations
+
+--->
+
+# Best Practices
+
+Organize commits into logically related changes
+
+- no more than one "task" per commit
+- no less then one "task" per commit
+
+--->
+
+# Best Practices
+
+Commit log messages
+
+--->
+
