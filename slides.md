@@ -307,58 +307,6 @@ durante lo sviluppo di un progetto.
 - need to manage complexity
 - branches help keeping different tasks separated
 
-# Centralized Workflow
-
-![repo](assets/centralized-04.svg)
-
---->
-
-# Centralized WF
-
-![clone](assets/centralized-05.svg)
-
---->
-
-# Centralized WF
-
-![John work](assets/centralized-06.svg)
-
---->
-
-# Centralized WF
-
-![Mary work](assets/centralized-07.svg)
-
---->
-
-# Centralized WF
-
-![John push](assets/centralized-08.svg)
-
---->
-
-# Centralized WF
-
-![Mery can't push](assets/centralized-09.svg)
-
---->
-
-# Centralized WF
-
-![Mery rebase](assets/centralized-10.svg)
-
---->
-
-# Centralized WF
-
-![Mery conflicts](assets/centralized-12.svg)
-
---->
-
-# Centralized WF
-
-![Mery push](assets/centralized-14.svg)
-
 ---
 
 # Release schedule
@@ -441,6 +389,60 @@ things
 - more importance to feature branches
 - continuous deployment with automation
 - support transparent rollback
+
+---
+
+# Centralized Workflow
+
+![repo](assets/centralized-04.svg)
+
+--->
+
+# Centralized WF
+
+![clone](assets/centralized-05.svg)
+
+--->
+
+# Centralized WF
+
+![John work](assets/centralized-06.svg)
+
+--->
+
+# Centralized WF
+
+![Mary work](assets/centralized-07.svg)
+
+--->
+
+# Centralized WF
+
+![John push](assets/centralized-08.svg)
+
+--->
+
+# Centralized WF
+
+![Mery can't push](assets/centralized-09.svg)
+
+--->
+
+# Centralized WF
+
+![Mery rebase](assets/centralized-10.svg)
+
+--->
+
+# Centralized WF
+
+![Mery conflicts](assets/centralized-12.svg)
+
+--->
+
+# Centralized WF
+
+![Mery push](assets/centralized-14.svg)
 
 ---
 
