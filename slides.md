@@ -1,10 +1,14 @@
 # Source Code Management
 
-### Andrea Galbusera (gizero)
+### Andrea Galbusera
 
-- gizero@gmail.com
-- [@gizero76](https://twitter.com/gizero76)
-- [GitHub](https://github.com/gizero)
+***
+
+gizero@gmail.com
+
+[@gizero76](https://twitter.com/gizero76)
+
+https://github.com/gizero
 
 ---
 
@@ -22,9 +26,13 @@ doing research into SCM technologies and best practices
 
 ---
 
-This presentation is browsable at http://gizero.github.io/scm-course-ff3d/
+This presentation is available at:
 
-Sources at https://github.com/gizero/scm-course-ff3d/
+http://gizero.github.io/scm-course-ff3d/
+
+Sources:
+
+https://github.com/gizero/scm-course-ff3d/
 
 ---
 
@@ -41,6 +49,7 @@ Sources at https://github.com/gizero/scm-course-ff3d/
 # Agenda
 
 ## Day 2
+- advanced workflows
 - workshop
 
 ---
@@ -62,15 +71,14 @@ Sources at https://github.com/gizero/scm-course-ff3d/
 - ...but heavily biased towards command line
 <!-- .element: class="fragment" data-fragment-index="5" -->
 
-Note: will tell you why in a while
+Note: Avertenze
 
 ---
 
-# In This Course We Will
+# In This Course We
 
 - talk interactively to each other
 - sketch some diagrams
-- ...
 - build a reasonable work flow strategy
 
 ---
@@ -81,7 +89,7 @@ Note: will tell you why in a while
 
 Note: invece di concentrarsi sui comandi ci focalizzeremo maggiormente sul
 perchè vogliamo fare qualcosa e poi su come implementarla. Useremo qualche
-diagrammi per stimolare gli stessi processi di apprendimento che normalmente
+diagramma per stimolare gli stessi processi di apprendimento che normalmente
 portano alcuni di noi a preferire le GUI rispetto alle interfacce CLI.
 
 ---
@@ -134,10 +142,8 @@ nella classificazione appena introdotta...
 
 Frequently backup your files (caveman's SCM)
 
-PROs:
 - straightforward: anyone knows how to do it
-
-CONs:
+- error prone (write to wrong dir)
 - what does frequently mean?
 - how to deal with backups (housekeeping)
 - hard to find useful things among backups
@@ -147,19 +153,38 @@ CONs:
 
 # Distributed vs Centralized
 
-- Centralized VCSs:
-  + SVN
-  + TFS
-  + CVS
+--->
+
+# Centralized VCS
+
+- there is only one repository every contributor connects to
+- there is a single history of revisions
+- easy to administer and manage access control
+- single point of failure
 
 --->
 
-# Distributed vs Centralized
+# Centralized VCS
 
-- Distributed VCSs:
-  + git
-  + Mercurial
-  + BitKeeper
+- SVN
+- TFS
+- CVS
+
+--->
+
+# Distributed VCS
+
+- every contributor mirrors the entire history
+- every clone is a full backup
+
+--->
+
+# Distributed VCS
+
+- git
+- Mercurial
+- BitKeeper
+- Veracity
 
 ---
 
@@ -229,7 +254,7 @@ utilizzando i verbi come download work, create snapshot, share work
 What constraints are you dealing with?
 + how do you schedule your deadlines?
 + where is your code hosted?
-+ do you have staging instance?
++ do you have a staging instance?
 + where are the server you push to?
 + do you use a local development pattern?
 
@@ -238,17 +263,34 @@ a workflow they can use with git
 
 ---
 
-# Interlude - VCS and the ecosystem
-- ticket driven development (issue tracking)
-- milestones
-- QA (testing strategies)
-- releases, versioning scheme
-- deployment strategies
-- documentation (GitHub pages, wikis)
+# A Simple Workflow
+Shared repository with two contributors
+
+![Decentralised](assets/02fig02-decentralized.svg)
+
+--->
+
+## A Restricted Access Workflow
+Contributor have no access to the main repository
+
+![Decentralised](assets/02fig06-forking-pull-request.svg.png)
 
 ---
 
 # Interlude - VCS and the ecosystem
+
+- ticket driven development (issue tracking)
+- milestones
+- code review
+- QA (testing strategies)
+- releases, versioning scheme
+
+--->
+
+# Interlude - VCS and the ecosystem
+
+- deployment strategies
+- documentation (GitHub pages, wikis)
 - continuous integration (CI)
 - continuous deployment
 
@@ -269,13 +311,6 @@ durante lo sviluppo di un progetto.
 # Workflows
 
 - branches help keeping different tasks separated
-
---->
-
-# A Simple Workflow
-Shared repository with two contributors
-
-![Decentralised](assets/02fig02-decentralized.svg)
 
 --->
 
