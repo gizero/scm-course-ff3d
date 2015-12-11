@@ -138,6 +138,13 @@ nella classificazione appena introdotta...
 
 ---
 
+# Authorship
+
+- keep track of "who made what"
+- allow "blaming" changesets
+
+---
+
 # do I really need a tool? (alternatives)
 
 Frequently backup your files (caveman's SCM)
@@ -203,13 +210,6 @@ Frequently backup your files (caveman's SCM)
 ## Dictator and Lieutenants
 
 ![Dictator and Lieutenants](assets/workflow-dictator.png)
-
----
-
-# Authorship
-
-- keep track of "who made what"
-- allow "blaming" changesets
 
 ---
 
@@ -312,18 +312,6 @@ durante lo sviluppo di un progetto.
 
 - branches help keeping different tasks separated
 
---->
-
-# Scheduled Deployment
-- ticket based development
-
---->
-
-# Continuous Deployment
-- either a solo developer workflow or a more mature "trust your code" thing
-
----
-
 # Centralized Workflow
 
 ![repo](assets/centralized-04.svg)
@@ -375,23 +363,6 @@ durante lo sviluppo di un progetto.
 # Centralized WF
 
 ![Mery push](assets/centralized-14.svg)
-
----
-
-# Feature Branch Workflow
-
-Encurage collaboration and communication between team members
-- work
-- push
-- pull-request
-- review process
-- iterate
-- merge to master
-- push
-
---->
-
-# Feature Branch Workflow
 
 ---
 
