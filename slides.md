@@ -472,13 +472,13 @@ It's a matter of taste but:
 
 ---
 
-# Best Practices
+# Best Practices
 
 Always run 'diff' before committing
 
 --->
 
-# Best Practices
+# Best Practices
 
 Read diffs from other developers
 
@@ -487,7 +487,7 @@ Read diffs from other developers
 
 --->
 
-# Best Practices
+# Best Practices
 
 Keep your repos as small as possible
 
@@ -497,7 +497,7 @@ Keep your repos as small as possible
 
 --->
 
-# Best Practices
+# Best Practices
 
 Organize commits into logically related changes
 
@@ -506,13 +506,13 @@ Organize commits into logically related changes
 
 --->
 
-# Best Practices
+# Best Practices
 
 Commit log messages
 
 --->
 
-# Best Practices
+# Best Practices
 
 Don't comment code: just delete it
 
