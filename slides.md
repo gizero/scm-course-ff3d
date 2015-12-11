@@ -305,11 +305,6 @@ durante lo sviluppo di un progetto.
 - the world is non-linear
 - your work is no exception
 - need to manage complexity
-
----
-
-# Workflows
-
 - branches help keeping different tasks separated
 
 # Centralized Workflow
