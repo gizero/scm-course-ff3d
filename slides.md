@@ -459,7 +459,7 @@ It's a matter of taste but:
 
 ---
 
-# Slide 3
+# Bootstrap
 
     $ git init .
 
