@@ -400,6 +400,15 @@ things
 
 # Centralized WF
 
+- flat learning curve for CVCS users
+- allows isolated environment
+- forget about upstream until convenient
+- cheap and robust branch & merging
+
+--->
+
+# Centralized WF
+
 ![clone](assets/centralized-05.svg)
 
 --->
