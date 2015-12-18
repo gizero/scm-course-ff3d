@@ -757,7 +757,7 @@ IDE files, build dir, local settings, etc...
 # Recap
 
 ## branches
-- lightweight movable pointer to one commits
+- lightweight movable pointer to one commit
 - when you commit, the branch moves forward, pointing to the new commit
 
 Note: branch in git is actuality a simple file that contains the 40 character SHA–1 checksum of the commit it points to
@@ -790,15 +790,13 @@ Note: branch in git is actuality a simple file that contains the 40 character SH
 
 --->
 
-## Topic branches
+# Topic branches
 
-You should branch everytime you do something new.
+You should branch everytime you do something new
 
-Branch for:
-
-+ Fixes
-+ Features
-+ Experiments
+- Fixes
+- Features
+- Experiments
 
 --->
 
@@ -1036,7 +1034,6 @@ __The only difference between merging and rebasing is the resulting history__
     $ git commit -m "Fancy message" // Many of these
     $ git pull origin develop       // This merges. Simpler
     $ git push origin develop       // Push commits
-
 ---
 
 # Branching model
