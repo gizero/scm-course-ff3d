@@ -800,36 +800,18 @@ You should branch everytime you do something new
 
 --->
 
-## Long-running branches
-<br>
-### If you do not care about versions
-+ Keep master stable!
-
-<br>
-### If you want to release specific versions
-+ Develop on master
-+ Branch to stable release versions
-+ Fix bugs on release versions branches and merge onto master
-+ Never merge master onto release version branches
-
---->
-
-<img src="images/branch_merge_meme.jpg" width="700px" />
-
---->
-
 ## The scenario
-+ Do work on a web site
-+ Create a branch for a new story you’re working on
-+ Do some work in that branch
+- Do work on a web site
+- Create a branch for a new story you’re working on
+- Do some work in that branch
 
 <br>
 
 ## James calls (angry) for a hotfix
-+ Revert back to your production branch
-+ Create a branch to add the hotfix
-+ After it’s tested, merge the hotfix branch, and push to production
-+ Switch back to your original story and continue working
+- Revert back to your production branch
+- Create a branch to add the hotfix
+- After it’s tested, merge the hotfix branch, and push to production
+- Switch back to your original story and continue working
 
 --->
 
@@ -1055,40 +1037,6 @@ __The only difference between merging and rebasing is the resulting history__
 </a>
 
 ---
-
-# Tools?
-
----
-
-# For the future
-
-+ Stashing
-+ Cherry-pick
-+ Interactive staging
-+ Interactive rebasing
-
----
-
-# Conclusions
-
---->
-
-## Not so good things
-
-+ It's different
-+ It will take some time to get the handle
-+ You wont spend 2 hours doing merges anymore :-)
-
---->
-
-## Good things
-
-+ You shouldn't use git (or other VCS) to just 'save your work' at the end of the day
-+ Craft your commits - it will help you
-+ Treating commits as snapshots brings advantages
-+ Branch and Merge are friends - __don't be afraid of them!__
-
---->
 
 # Best Practices
 
