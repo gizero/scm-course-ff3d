@@ -816,21 +816,21 @@ You should branch everytime you do something new
 --->
 
 ## In the begining...
-<img src="images/branch_example1.png" width="400px" />
+<img src="assets/branch_example1.png" width="400px" />
 
 --->
 
 ## Time to start working on issue #53
     $ git checkout -b iss53
     Switched to a new branch "iss53"
-<img src="images/branch_example2.png" width="400px" />
+<img src="assets/branch_example2.png" width="400px" />
 
 --->
 
 ## Do some work
     $ vim index.html
     $ git commit -a -m 'added a new footer [issue 53]'
-<img src="images/branch_example3.png" width="450px" />
+<img src="assets/branch_example3.png" width="450px" />
 
 --->
 
@@ -847,7 +847,7 @@ You should branch everytime you do something new
     $ git commit -a -m 'fixed the broken email address'
     [hotfix]: created 3a0874c: "fixed the broken email address"
      1 files changed, 0 insertions(+), 1 deletions(-)
-<img src="images/branch_example4.png" width="450px" />
+<img src="assets/branch_example4.png" width="450px" />
 
 --->
 
@@ -858,7 +858,7 @@ You should branch everytime you do something new
     Fast forward
      index.html |    1 -
      1 files changed, 0 insertions(+), 1 deletions(-)
-<img src="images/branch_example5.png" width="400px" />
+<img src="assets/branch_example5.png" width="400px" />
 
 --->
 
@@ -869,7 +869,7 @@ You should branch everytime you do something new
     $ git commit -a -m 'finished the new footer [issue 53]'
     [iss53]: created ad82d7a: "finished the new footer [issue 53]"
      1 files changed, 1 insertions(+), 0 deletions(-)
-<img src="images/branch_example6.png" width="500px" />
+<img src="assets/branch_example6.png" width="500px" />
 
 --->
 
@@ -879,20 +879,16 @@ You should branch everytime you do something new
     Merge made by recursive.
      index.html |    1 +
      1 files changed, 1 insertions(+), 0 deletions(-)
-<img src="images/branch_example7.png" width="500px" />
+<img src="assets/branch_example7.png" width="500px" />
 
 --->
 
 ## The end result
-<img src="images/branch_example8.png" width="600px" />
+<img src="assets/branch_example8.png" width="600px" />
 
 --->
 
-<img src="images/conflicts_meme.jpg" width="600px" />
-
---->
-
-## You are...
+## Conflicts
     $ git merge iss53
     Auto-merging index.html
     CONFLICT (content): Merge conflict in index.html
@@ -958,12 +954,12 @@ After rebasing, a merge of master with diverging_branch will fast-forward master
 --->
 
 ## Care to give an example?
-<img src="images/rebasing_example1.png" width="500px" />
+<img src="assets/rebasing_example1.png" width="500px" />
 
 --->
 
 ## Merge
-<img src="images/rebasing_example2.png" width="500px" />
+<img src="assets/rebasing_example2.png" width="500px" />
 
 --->
 
@@ -972,24 +968,24 @@ After rebasing, a merge of master with diverging_branch will fast-forward master
     $ git rebase master
     First, rewinding head to replay your work on top of it...
     Applying: added staged command
-<img src="images/rebasing_example3.png" width="600px" />
+<img src="assets/rebasing_example3.png" width="600px" />
 
 --->
 
 ## Rebase - Step #2
     $ git checkout master
     $ git merge experiment
-<img src="images/rebasing_example4.png" width="600px" />
+<img src="assets/rebasing_example4.png" width="600px" />
 
 --->
 
 ## A more interesting rebase
-<img src="images/rebasing_example5.png" width="600px" />
+<img src="assets/rebasing_example5.png" width="600px" />
 
 --->
 
 ## Integrate the client changes to master
-<img src="images/rebasing_example6.png" width="700px" />
+<img src="assets/rebasing_example6.png" width="700px" />
 
 --->
 
@@ -1004,7 +1000,7 @@ __The only difference between merging and rebasing is the resulting history__
 
 --->
 
-<img src="images/rebase_meme.jpg" width="800px" />
+<img src="assets/rebase_meme.jpg" width="800px" />
 
 --->
 
@@ -1016,6 +1012,7 @@ __The only difference between merging and rebasing is the resulting history__
     $ git commit -m "Fancy message" // Many of these
     $ git pull origin develop       // This merges. Simpler
     $ git push origin develop       // Push commits
+
 ---
 
 # Branching model
@@ -1024,16 +1021,16 @@ __The only difference between merging and rebasing is the resulting history__
 
 ## A branching model allows you to...
 
-+ Release your code more frequently
-+ Keep a production ready state of your product
-+ Don't wait for nobody to push that hotfix
-+ Better collaborate on features
+- Release your code more frequently
+- Keep a production ready state of your product
+- Don't wait for nobody to push that hotfix
+- Better collaborate on features
 
 --->
 
 ## A successful/common model
 <a href="http://nvie.com/posts/a-successful-git-branching-model/">
-    <img src="images/branching_model.png" width="400px" />
+    <img src="assets/branching_model.png" width="400px" />
 </a>
 
 ---
