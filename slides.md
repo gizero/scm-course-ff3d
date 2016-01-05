@@ -802,7 +802,7 @@ You should branch everytime you do something new
 
 ## The scenario
 - Do work on a web site
-- Create a branch for a new story you’re working on
+- Create a branch for a new story you're working on
 - Do some work in that branch
 
 <br>
@@ -810,7 +810,7 @@ You should branch everytime you do something new
 ## James calls (angry) for a hotfix
 - Revert back to your production branch
 - Create a branch to add the hotfix
-- After it’s tested, merge the hotfix branch, and push to production
+- After it's tested, merge the hotfix branch, and push to production
 - Switch back to your original story and continue working
 
 --->
@@ -946,7 +946,7 @@ After rebasing, a merge of master with diverging_branch will fast-forward master
 
 ## How rebase works
 1. Finds the common ancestor of the two branches (base)
-2. Gets the diff of each commit of the branch you’re on, from the base
+2. Gets the diff of each commit of the branch you're on, from the base
 3. Saves those diffs to temporary files
 4. Resets the current branch to the same commit as the branch you are rebasing onto
 5. Applies each change (diff) in turn
