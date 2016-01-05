@@ -532,7 +532,7 @@ It's a matter of taste but:
 
 ---
 
-# Lifecycle of the status
+# Status Lifecycle
 
 ![Lifecycle](assets/lifecycle.png)
 
