@@ -510,7 +510,7 @@ It's a matter of taste but:
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-    $ git add file
+    $ git add README
 
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
@@ -538,6 +538,23 @@ It's a matter of taste but:
 
 ---
 
+# Hands-on session
+
+--->
+
+# Initialize repo
+
+    $ git init
+
+## `.git` gets created
+    $ ls -la
+    total 0
+    drwxr-xr-x   3 gizero  staff   102B Jan 14 20:48 .
+    drwxr-xr-x  18 gizero  staff   612B Jan 14 20:48 ..
+    drwxr-xr-x   9 gizero  staff   306B Jan 14 20:48 .git
+
+--->
+
 # Check file status
 
     $ git status
@@ -552,138 +569,176 @@ It's a matter of taste but:
 
 # Check file status
     $ git status
-    # On branch master
-    nothing to commit (working directory clean)
-<br>
-## After creating a new file
+    On branch master
+
+    Initial commit
+
+    nothing to commit (create/copy files and use "git add" to track)
+
+--->
+
+# Check file status
+## Then create a new file
     $ touch README
     $ git status
-    # On branch master
-    # Untracked files:
-    #   (use "git add <file>..." to include in what will be committed)
-    #
-    #   README
-    # nothing added to commit but untracked files present (use "git add" to
-    # track)
+    On branch master
+
+    Initial commit
+
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+
+              README
+
+    nothing added to commit but untracked files present (use "git add"
+    to track)
 
 --->
 
 # Adding a file
     $ git add README
-<br>
 ## Check the status again
     $ git status
-    # On branch master
-    # Changes to be committed:
-    #   (use "git reset HEAD <file>..." to unstage)
-    #
-    #   new file:   README
-    #
+    On branch master
+
+    Initial commit
+
+    Changes to be committed:
+      (use "git rm --cached <file>..." to unstage)
+
+              new file:   README
 
 --->
 
 # Modify tracked file
-    $ vim index.html
-<br>
+    $ $EDITOR index.html
 ## What's the status now?
     $ git status
-    # On branch master
-    # Changes to be committed:
-    #   (use "git reset HEAD <file>..." to unstage)
-    #
-    #   new file:   README
-    #
-    # Changes not staged for commit:
-    #   (use "git add <file>..." to update what will be committed)
-    #
-    #   modified:   index.html
-    #
+    On branch master
+    Changes to be committed:
+      (use "git reset HEAD <file>..." to unstage)
+
+            new file:   README
+
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git checkout -- <file>..." to discard changes in working
+      directory)
+
+            modified:   index.html
 
 --->
 
 # Stage Changes
     $ git add index.html
-<br>
 ## And the status?
     $ git status
-    # On branch master
-    # Changes to be committed:
-    #   (use "git reset HEAD <file>..." to unstage)
-    #
-    #   new file:   README
-    #   modified:   index.html
-    #
+    $ git status
+    On branch master
+    Changes to be committed:
+      (use "git reset HEAD <file>..." to unstage)
+
+            new file:   README
+            modified:   index.html
 
 --->
 
 # git add
+### a multipurpose command
 
 - git add to track new files
 - git add to stage files
 - git add to mark conflicts as resolved
 
-Note: add is a multipurpose command
-
 --->
 
 # Check changes
-    $ git diff          # changes still unstaged
-    $ git diff --cached # changes staged to commit
+    $ git diff             # changes still unstaged
+
+(shows nothing)
+
+    $ git diff --cached    # changes staged for commit
+
+(shows staged diffs)
 
 --->
 
 # Time to Commit
     $ git commit -m "That's fun, isn't it?"
+    [master b795273] That's fun, isn't it?
+     2 files changed, 10 insertions(+)
+     create mode 100644 README
 
 --->
 
 # All in One
     $ git commit -a -m "fix stuff"
 <br>
-This will stage and commit the files in a single operation
++ will stage and commit the files in a single operation
++ automatically stages modified and deleted files
++ does not affect untracked files
++ use with caution!
 
 --->
 
 # Fix last commit
     $ git commit --ammend
+<br>
++ use when you mispelled your last commit message
++ you can also stage other changes before amending
 
 --->
 
 # Removing files
-    $ git rm file.txt          # removes from repo & working directory
-    $ git rm --cached file.txt # removes from repo
+    $ git rm README            # removes from repo & working directory
+    $ git rm --cached README   # removes from repo
 
 --->
 
 # Moving and renaming files
-    $ git mv file_from file_to
+    $ git mv README README.txt
 <br>
 Is just a shorthand for:
 
-    $ mv README.txt README
-    $ git rm README.txt
-    $ git add README
+    $ mv README README.txt
+    $ git rm README
+    $ git add README.txt
 
 --->
 
 # Ignoring files
-    $ vim .gitignore
+    $ $EDITOR .gitignore
 IDE files, build dir, local settings, etc...
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+    $ git add .gitignore
+    $ git commit -m 'tell git to ignore these files'
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 --->
 
-# View the commit history
+# View history
     $ git log
 
 --->
 
-# Removing a file from the staging area
-    $ git reset <filename>
+# Undoing
+## Removing a file from the stage
+    $ git reset README
 
 --->
 
-# Undo file changes
-    $ git checkout <filename>
+# Undoing
+## Reverting uncommitted changes
+    $ git checkout README
+
+--->
+
+# Undoing
+## Reverting a commit
+    $ git revert b79527
 
 --->
 
@@ -828,7 +883,7 @@ You should branch everytime you do something new
 --->
 
 ## Do some work
-    $ vim index.html
+    $ $EDITOR index.html
     $ git commit -a -m 'added a new footer [issue 53]'
 <img src="assets/branch_example3.png" width="450px" />
 
@@ -843,7 +898,7 @@ You should branch everytime you do something new
 ## Fixing the problem
     $ git checkout -b hotfix
     Switched to a new branch "hotfix"
-    $ vim index.html
+    $ $EDITOR index.html
     $ git commit -a -m 'fixed the broken email address'
     [hotfix]: created 3a0874c: "fixed the broken email address"
      1 files changed, 0 insertions(+), 1 deletions(-)
@@ -865,7 +920,7 @@ You should branch everytime you do something new
 ## Let's continue working on issue #53
     $ git checkout iss53
     Switched to branch "iss53"
-    $ vim index.html
+    $ $EDITOR index.html
     $ git commit -a -m 'finished the new footer [issue 53]'
     [iss53]: created ad82d7a: "finished the new footer [issue 53]"
      1 files changed, 1 insertions(+), 0 deletions(-)
