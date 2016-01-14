@@ -1198,3 +1198,36 @@ Don't comment code: just delete it
 + Have a subject that does not exceed 50 chars
 + Have a thourough message body that explains in detail what was changed and why. This message is linewrapped at 72 chars.
 
+---
+
+# Workshop 1
+## Start from scratch
++ create a new project
++ create a few commits
++ start working on a new "feature A"
++ implement "feature A" in a different way
++ merge one of the two implementation
+
+--->
+
+# Workshop 1
+## Start from scratch
++ create README.creator with a list of steps
+
+---
+
+# Workshop 2
+## Work with existing repo
++ clone an existing project
++ navigate project's history
+
+---
+
+# Workshop 3
+## Start from existing files
++ initialize the repo
++ 
+
+---
+
+
