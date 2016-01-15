@@ -839,9 +839,77 @@ Note: branch in git is actuality a simple file that contains the 40 character SH
 ### List branches
     $ git branch
 
+---
+
+# Source Code Management
+
+### Andrea Galbusera
+
+***
+
+gizero@gmail.com
+
+[@gizero76](https://twitter.com/gizero76)
+
+https://github.com/gizero
+
+---
+
+# Workshops
+## Requirements
++ working git client (CLI)
++ text editor
+
+---
+
+# Workshop 1
+## Start from scratch
++ create a new project
++ create a few commits on master
++ start working on a new "feature A"
++ implement "feature A" in a different way
++ merge one of the two implementation
++ ...
+
+---
+
+# Workshop 2
+## Work with existing repo
++ clone an existing project
++ navigate project's history
++ continue working on the project
++ https://github.com/gizero/scm-course-ff3d-workshop.git
+
+---
+
+# Workshop 3
+## Playground
++ http://onlywei.github.io/explain-git-with-d3/
+
+---
+
+# Workshop 4
+## Start from existing files
++ initialize the repo
++ add the minimum set of required files
++ test completeness by cloning elsewhere
+
+---
+
+# Branching model
+
 --->
 
-# Some examples of branching models
+## A branching model allows to...
+
+- release your code more frequently
+- keep a production ready state of your product
+- don't wait for nobody to push that hotfix
+- better collaborate on features
+
+---
+
+# Examples of branching models
 
 --->
 
@@ -849,42 +917,39 @@ Note: branch in git is actuality a simple file that contains the 40 character SH
 
 You should branch everytime you do something new
 
-- Fixes
-- Features
-- Experiments
++ fixes
++ features
++ experiments
 
 --->
 
-## Long-running branches
-<br>
-### If you do not care about versions
-+ Keep master stable!
-
-<br>
-### If you want to release specific versions
-+ Develop on master
-+ Branch to stable release versions
-+ Fix bugs on release versions branches and merge onto master
-+ Never merge master onto release version branches
+# Long-running branches
++ always-stable master as production branch
++ stable release versions maintainance branches
 
 --->
 
-<img src="images/branch_merge_meme.jpg" width="700px" />
+## A successful/common model
+<a href="http://nvie.com/posts/a-successful-git-branching-model/">
+    <img src="assets/branching_model.png" width="400px" />
+</a>
+
+---
+
+# Sample scenario
++ governance: master = production branch
++ development style: ticket driven
++ work on a web site
++ create a branch for a new story you're working on
++ do some work in that branch, then...
 
 --->
 
-## The scenario
-+ Do work on a web site
-+ Create a branch for a new story you’re working on
-+ Do some work in that branch
-
-<br>
-
-## James calls (angry) for a hotfix
-+ Revert back to your production branch
-+ Create a branch to add the hotfix
-+ After it’s tested, merge the hotfix branch, and push to production
-+ Switch back to your original story and continue working
+# Boss calls for a hotfix
++ revert back to your production branch
++ create a branch to add the hotfix
++ after it's tested, merge the hotfix branch, and push to production
++ switch back to your original story and continue working
 
 --->
 
@@ -893,7 +958,7 @@ You should branch everytime you do something new
 
 --->
 
-## Time to start working on issue #53
+## Start working on issue #53
     $ git checkout -b iss53
     Switched to a new branch "iss53"
 <img src="assets/branch_example2.png" width="400px" />
@@ -907,7 +972,7 @@ You should branch everytime you do something new
 
 --->
 
-## James calls - Let's get back to master
+## Boss calls - Back to master
     $ git checkout master
     Switched to branch "master"
 
@@ -924,7 +989,7 @@ You should branch everytime you do something new
 
 --->
 
-## Ready to production? - Merge to master
+## Merge hotfix to master
     $ git checkout master
     $ git merge hotfix
     Updating f42c576..3a0874c
@@ -987,18 +1052,18 @@ You should branch everytime you do something new
     <div id="container">Awesome!</div>
     =======
     <div id="container">
-        Wunderbar!
+        Cool!
     </div>
     >>>>>>> my-other-branch:index.html
 
-__Remember:__ `HEAD` is was what you had checked out when you ran your merge command
+__Remember:__ `HEAD` is what you checked out before running merge command
 
 --->
 
 ## Mark file as resolved
     $ git add <filename>
 <br>
-## Graphical tool to solve the issues
+## With external merge tool
     $ git mergetool
 <br>
 ## Continue merge after solving conflicts
@@ -1085,26 +1150,6 @@ __The only difference between merging and rebasing is the resulting history__
     $ git commit -m "Fancy message" // Many of these
     $ git pull origin develop       // This merges. Simpler
     $ git push origin develop       // Push commits
-
----
-
-# Branching model
-
---->
-
-## A branching model allows you to...
-
-- Release your code more frequently
-- Keep a production ready state of your product
-- Don't wait for nobody to push that hotfix
-- Better collaborate on features
-
---->
-
-## A successful/common model
-<a href="http://nvie.com/posts/a-successful-git-branching-model/">
-    <img src="assets/branching_model.png" width="400px" />
-</a>
 
 ---
 
@@ -1197,37 +1242,4 @@ Don't comment code: just delete it
 + Start with a capitalized letter
 + Have a subject that does not exceed 50 chars
 + Have a thourough message body that explains in detail what was changed and why. This message is linewrapped at 72 chars.
-
----
-
-# Workshop 1
-## Start from scratch
-+ create a new project
-+ create a few commits
-+ start working on a new "feature A"
-+ implement "feature A" in a different way
-+ merge one of the two implementation
-
---->
-
-# Workshop 1
-## Start from scratch
-+ create README.creator with a list of steps
-
----
-
-# Workshop 2
-## Work with existing repo
-+ clone an existing project
-+ navigate project's history
-
----
-
-# Workshop 3
-## Start from existing files
-+ initialize the repo
-+ 
-
----
-
 
