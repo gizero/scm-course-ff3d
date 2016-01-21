@@ -896,11 +896,37 @@ https://github.com/gizero
 
 ---
 
+# Source Code Management
+
+### Andrea Galbusera
+
+***
+
+gizero@gmail.com
+
+[@gizero76](https://twitter.com/gizero76)
+
+https://github.com/gizero
+
+---
+
+# Day 4 - agenda
++ more on branching models
++ demo: interactive staging
++ demo: interactive rebase
++ git best practices
+
+---
+
 # Branching model
+
+or
+
+# Branching strategy
 
 --->
 
-## A branching model allows to...
+# A branching model allows to...
 
 - release your code more frequently
 - keep a production ready state of your product
@@ -1054,7 +1080,7 @@ You should branch everytime you do something new
     <div id="container">
         Cool!
     </div>
-    >>>>>>> my-other-branch:index.html
+    >>>>>>> iss53:index.html
 
 __Remember:__ `HEAD` is what you checked out before running merge command
 
@@ -1071,27 +1097,33 @@ __Remember:__ `HEAD` is what you checked out before running merge command
 
 --->
 
-## Rebasing
+# Rebasing
 
-Reapplying a diverging branch onto another
++ reapplying a diverging branch onto another
++ after rebasing, a merge of master with "experiment" will fast-forward master
++ use when explicit merge commits are not desirable
++ has drawbacks (rewrites history)
 
-    git checkout <diverging_branch>
+--->
+
+# Rebasing
+
+    git checkout experiment
     git rebase master
 
-After rebasing, a merge of master with diverging_branch will fast-forward master
 
 --->
 
 ## How rebase works
-1. Finds the common ancestor of the two branches (base)
-2. Gets the diff of each commit of the branch you're on, from the base
-3. Saves those diffs to temporary files
-4. Resets the current branch to the same commit as the branch you are rebasing onto
-5. Applies each change (diff) in turn
+1. finds the common ancestor of the two branches (base)
+2. gets the diff of each commit of the branch you're on, from the base
+3. saves those diffs to temporary files
+4. resets the current branch to the same commit as the branch you are rebasing onto
+5. applies each change (diff) in turn
 
 --->
 
-## Care to give an example?
+## Example
 <img src="assets/rebasing_example1.png" width="500px" />
 
 --->
@@ -1127,29 +1159,26 @@ After rebasing, a merge of master with diverging_branch will fast-forward master
 
 --->
 
-## Rebasing fundamentals
+# Rebase while pulling
 
-> Rebasing replays changes from one line
-> of work onto another in the order they
-> were introduced, whereas merging takes 
-> the endpoints and merges them together.
-
-__The only difference between merging and rebasing is the resulting history__
+    $ git pull --rebase origin master
 
 --->
 
-<img src="assets/rebase_meme.jpg" width="800px" />
+# Rebase vs Merge
+
++ rebasing replays changes from one line of work onto another in the order they were introduced
++ merging takes the endpoints and merges them together
++ the only difference between merging and rebasing is the resulting history, not the content
 
 --->
 
-## Tips
-+ Don't be afraid to branch and merge frequently
-+ At the begining, ad if you're working on the same branch: ignore rebase
+# Rebase vs Merge
 
-## Like this
-    $ git commit -m "Fancy message" // Many of these
-    $ git pull origin develop       // This merges. Simpler
-    $ git push origin develop       // Push commits
++ dont't rebase pushed branches (unless allowed by your policy)
++ rebase to polish your history (interactive rebase)
++ rebase to keep up-to-date feature branches in a cleaner way
++ ...otherwise merge
 
 ---
 
@@ -1218,12 +1247,33 @@ Organize commits into logically related changes
 
 - no more than one "task" per commit
 - no less then one "task" per commit
+- commit semantically
 
 --->
 
 # Best Practices
 
-Commit log messages
+## Commit log messages
++ <50 chars short summary
++ blank line
++ more in-depth description
+
+--->
+
+# Best Practices
+
++ don't commit half-done work
++ VCS != backup system
+
+--->
+
+# Best Practices
+
+## Commit log messages
++ the body should answer these questions:
+  - what was the motivation for this change?
+  - how does it differ from previous implementation?
++ use imperative present tense for verbs
 
 --->
 
@@ -1234,6 +1284,16 @@ Don't comment code: just delete it
 - tools allow for easy recovery if needed
 - keep things more readable
 - can have performance inpact in sources for the web
+
+--->
+
+# Best Practices
+
+Choose a workflow
+
++ take your time to experiment with different options
++ build your team around this decision
++ once you agree ensure everyone follows
 
 --->
 
