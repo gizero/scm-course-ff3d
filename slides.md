@@ -1182,37 +1182,17 @@ __Remember:__ `HEAD` is what you checked out before running merge command
 
 ---
 
-# Tools?
-
----
-
 # For the future
 
++ Interactive staging (`git add -p`)
++ Interactive rebasing (`git rebase -i`)
 + Stashing
 + Cherry-pick
-+ Interactive staging
-+ Interactive rebasing
++ hooks
 
 ---
 
-# Conclusions
-
---->
-
-## Not so good things
-
-+ It's different
-+ It will take some time to get the handle
-+ You wont spend 2 hours doing merges anymore :-)
-
---->
-
-## Good things
-
-+ You shouldn't use git (or other VCS) to just 'save your work' at the end of the day
-+ Craft your commits - it will help you
-+ Treating commits as snapshots brings advantages
-+ Branch and Merge are friends - __don't be afraid of them!__
+# Best Practices
 
 --->
 
@@ -1226,8 +1206,8 @@ Always run 'diff' before committing
 
 Read diffs from other developers
 
-- you can learn something
-- informal review
++ you can learn something
++ informal review
 
 --->
 
@@ -1235,9 +1215,10 @@ Read diffs from other developers
 
 Keep your repos as small as possible
 
-- minimal set of "sources"
-- never store generated files
-- store content, not representations
++ minimal set of "sources"
++ never store generated files
++ store content, not representations
++ maintain your .gitignore
 
 --->
 
@@ -1245,18 +1226,38 @@ Keep your repos as small as possible
 
 Organize commits into logically related changes
 
-- no more than one "task" per commit
-- no less then one "task" per commit
-- commit semantically
++ no more than one "task" per commit
++ no less then one "task" per commit
++ commit semantically
 
 --->
 
 # Best Practices
-
 ## Commit log messages
-+ <50 chars short summary
++ <50 chars short summary (`git log --online`)
 + blank line
-+ more in-depth description
++ more in-depth description (wrap at 72 chars)
+
+--->
+
+# Best Practices
+## Commit log messages
++ the body should answer these questions:
+  - what was the motivation for this change?
+  - how does it differ from previous implementation?
++ use imperative present tense for verbs
++ keep references to tickets/issues/bugs
+
+--->
+
+# Best Practices
+## Example commit log message
+
+--->
+
+# Best Practices
+## Commit log messages
++ consider enforcing standards with hooks
 
 --->
 
@@ -1264,16 +1265,6 @@ Organize commits into logically related changes
 
 + don't commit half-done work
 + VCS != backup system
-
---->
-
-# Best Practices
-
-## Commit log messages
-+ the body should answer these questions:
-  - what was the motivation for this change?
-  - how does it differ from previous implementation?
-+ use imperative present tense for verbs
 
 --->
 
@@ -1297,9 +1288,40 @@ Choose a workflow
 
 --->
 
-## Regarding commit messages
-+ Are in the present tense
-+ Start with a capitalized letter
-+ Have a subject that does not exceed 50 chars
-+ Have a thourough message body that explains in detail what was changed and why. This message is linewrapped at 72 chars.
+# Best Practices
 
+If you chose master == production workflows, always use origin/master instead of your local master
+
+    $ git checkout -b dev-[issue_num]-short-description origin/master
+
+--->
+
+# Best Practices
+
+Read (continuously) about git online
++ https://git-scm.com/book/en/v2
++ http://sethrobertson.github.io/GitBestPractices/
++ and many many others...
++ then...
+
+--->
+
+# Best Practices
+
+Opinionize yourself and document your workflows/practices
+
+---
+
+# Q/A
+
+---
+
+# Thank you!
+
+***
+
+gizero@gmail.com
+
+[@gizero76](https://twitter.com/gizero76)
+
+https://github.com/gizero
