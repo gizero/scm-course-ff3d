@@ -894,3 +894,434 @@ https://github.com/gizero
 + add the minimum set of required files
 + test completeness by cloning elsewhere
 
+---
+
+# Source Code Management
+
+### Andrea Galbusera
+
+***
+
+gizero@gmail.com
+
+[@gizero76](https://twitter.com/gizero76)
+
+https://github.com/gizero
+
+---
+
+# Day 4 - agenda
++ more on branching models
++ demo: interactive staging
++ demo: interactive rebase
++ git best practices
+
+---
+
+# Branching model
+
+or
+
+# Branching strategy
+
+--->
+
+# A branching model allows to...
+
+- release your code more frequently
+- keep a production ready state of your product
+- don't wait for nobody to push that hotfix
+- better collaborate on features
+
+---
+
+# Examples of branching models
+
+--->
+
+# Topic branches
+
+You should branch everytime you do something new
+
++ fixes
++ features
++ experiments
+
+--->
+
+# Long-running branches
++ always-stable master as production branch
++ stable release versions maintainance branches
+
+--->
+
+## A successful/common model
+<a href="http://nvie.com/posts/a-successful-git-branching-model/">
+    <img src="assets/branching_model.png" width="400px" />
+</a>
+
+---
+
+# Sample scenario
++ governance: master = production branch
++ development style: ticket driven
++ work on a web site
++ create a branch for a new story you're working on
++ do some work in that branch, then...
+
+--->
+
+# Boss calls for a hotfix
++ revert back to your production branch
++ create a branch to add the hotfix
++ after it's tested, merge the hotfix branch, and push to production
++ switch back to your original story and continue working
+
+--->
+
+## In the begining...
+<img src="assets/branch_example1.png" width="400px" />
+
+--->
+
+## Start working on issue #53
+    $ git checkout -b iss53
+    Switched to a new branch "iss53"
+<img src="assets/branch_example2.png" width="400px" />
+
+--->
+
+## Do some work
+    $ $EDITOR index.html
+    $ git commit -a -m 'added a new footer [issue 53]'
+<img src="assets/branch_example3.png" width="450px" />
+
+--->
+
+## Boss calls - Back to master
+    $ git checkout master
+    Switched to branch "master"
+
+--->
+
+## Fixing the problem
+    $ git checkout -b hotfix
+    Switched to a new branch "hotfix"
+    $ $EDITOR index.html
+    $ git commit -a -m 'fixed the broken email address'
+    [hotfix]: created 3a0874c: "fixed the broken email address"
+     1 files changed, 0 insertions(+), 1 deletions(-)
+<img src="assets/branch_example4.png" width="450px" />
+
+--->
+
+## Merge hotfix to master
+    $ git checkout master
+    $ git merge hotfix
+    Updating f42c576..3a0874c
+    Fast forward
+     index.html |    1 -
+     1 files changed, 0 insertions(+), 1 deletions(-)
+<img src="assets/branch_example5.png" width="400px" />
+
+--->
+
+## Let's continue working on issue #53
+    $ git checkout iss53
+    Switched to branch "iss53"
+    $ $EDITOR index.html
+    $ git commit -a -m 'finished the new footer [issue 53]'
+    [iss53]: created ad82d7a: "finished the new footer [issue 53]"
+     1 files changed, 1 insertions(+), 0 deletions(-)
+<img src="assets/branch_example6.png" width="500px" />
+
+--->
+
+## Time to merge into master
+    $ git checkout master
+    $ git merge iss53
+    Merge made by recursive.
+     index.html |    1 +
+     1 files changed, 1 insertions(+), 0 deletions(-)
+<img src="assets/branch_example7.png" width="500px" />
+
+--->
+
+## The end result
+<img src="assets/branch_example8.png" width="600px" />
+
+--->
+
+## Conflicts
+    $ git merge iss53
+    Auto-merging index.html
+    CONFLICT (content): Merge conflict in index.html
+    Automatic merge failed; fix conflicts and then commit the result.
+
+<br>
+
+## Checking the status
+    $ git status
+    index.html: needs merge
+    # On branch master
+    # Changes not staged for commit:
+    #   (use "git add <file>..." to update what will be committed)
+    #   (use "git checkout -- <file>..." to discard changes in working directory)
+    #
+    #   unmerged:   index.html
+    #
+
+--->
+
+## Conflict example
+    <<<<<<< HEAD:index.html
+    <div id="container">Awesome!</div>
+    =======
+    <div id="container">
+        Cool!
+    </div>
+    >>>>>>> iss53:index.html
+
+__Remember:__ `HEAD` is what you checked out before running merge command
+
+--->
+
+## Mark file as resolved
+    $ git add <filename>
+<br>
+## With external merge tool
+    $ git mergetool
+<br>
+## Continue merge after solving conflicts
+    $ git commit
+
+--->
+
+# Rebasing
+
++ reapplying a diverging branch onto another
++ after rebasing, a merge of master with "experiment" will fast-forward master
++ use when explicit merge commits are not desirable
++ has drawbacks (rewrites history)
+
+--->
+
+# Rebasing
+
+    git checkout experiment
+    git rebase master
+
+
+--->
+
+## How rebase works
+1. finds the common ancestor of the two branches (base)
+2. gets the diff of each commit of the branch you're on, from the base
+3. saves those diffs to temporary files
+4. resets the current branch to the same commit as the branch you are rebasing onto
+5. applies each change (diff) in turn
+
+--->
+
+## Example
+<img src="assets/rebasing_example1.png" width="500px" />
+
+--->
+
+## Merge
+<img src="assets/rebasing_example2.png" width="500px" />
+
+--->
+
+## Rebase - Step #1
+    $ git checkout experiment
+    $ git rebase master
+    First, rewinding head to replay your work on top of it...
+    Applying: added staged command
+<img src="assets/rebasing_example3.png" width="600px" />
+
+--->
+
+## Rebase - Step #2
+    $ git checkout master
+    $ git merge experiment
+<img src="assets/rebasing_example4.png" width="600px" />
+
+--->
+
+## A more interesting rebase
+<img src="assets/rebasing_example5.png" width="600px" />
+
+--->
+
+## Integrate the client changes to master
+<img src="assets/rebasing_example6.png" width="700px" />
+
+--->
+
+# Rebase while pulling
+
+    $ git pull --rebase origin master
+
+--->
+
+# Rebase vs Merge
+
++ rebasing replays changes from one line of work onto another in the order they were introduced
++ merging takes the endpoints and merges them together
++ the only difference between merging and rebasing is the resulting history, not the content
+
+--->
+
+# Rebase vs Merge
+
++ dont't rebase pushed branches (unless allowed by your policy)
++ rebase to polish your history (interactive rebase)
++ rebase to keep up-to-date feature branches in a cleaner way
++ ...otherwise merge
+
+---
+
+# For the future
+
++ Interactive staging (`git add -p`)
++ Interactive rebasing (`git rebase -i`)
++ Stashing
++ Cherry-pick
++ hooks
+
+---
+
+# Best Practices
+
+--->
+
+# Best Practices
+
+Always run 'diff' before committing
+
+--->
+
+# Best Practices
+
+Read diffs from other developers
+
++ you can learn something
++ informal review
+
+--->
+
+# Best Practices
+
+Keep your repos as small as possible
+
++ minimal set of "sources"
++ never store generated files
++ store content, not representations
++ maintain your .gitignore
+
+--->
+
+# Best Practices
+
+Organize commits into logically related changes
+
++ no more than one "task" per commit
++ no less then one "task" per commit
++ commit semantically
+
+--->
+
+# Best Practices
+## Commit log messages
++ <50 chars short summary (`git log --online`)
++ blank line
++ more in-depth description (wrap at 72 chars)
+
+--->
+
+# Best Practices
+## Commit log messages
++ the body should answer these questions:
+  - what was the motivation for this change?
+  - how does it differ from previous implementation?
++ use imperative present tense for verbs
++ keep references to tickets/issues/bugs
+
+--->
+
+# Best Practices
+## Example commit log message
+
+--->
+
+# Best Practices
+## Commit log messages
++ consider enforcing standards with hooks
+
+--->
+
+# Best Practices
+
++ don't commit half-done work
++ VCS != backup system
+
+--->
+
+# Best Practices
+
+Don't comment code: just delete it
+
+- tools allow for easy recovery if needed
+- keep things more readable
+- can have performance inpact in sources for the web
+
+--->
+
+# Best Practices
+
+Choose a workflow
+
++ take your time to experiment with different options
++ build your team around this decision
++ once you agree ensure everyone follows
+
+--->
+
+# Best Practices
+
+If you chose master == production workflows, always use origin/master instead of your local master
+
+    $ git checkout -b dev-[issue_num]-short-description origin/master
+
+--->
+
+# Best Practices
+
+Read (continuously) about git online
++ https://git-scm.com/book/en/v2
++ http://sethrobertson.github.io/GitBestPractices/
++ and many many others...
++ then...
+
+--->
+
+# Best Practices
+
+**Choose** and **document** your workflows/practices
+
+---
+
+# Q/A
+
+---
+
+# Thank you!
+
+***
+
+gizero@gmail.com
+
+[@gizero76](https://twitter.com/gizero76)
+
+https://github.com/gizero
